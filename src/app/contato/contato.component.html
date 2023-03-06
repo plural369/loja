@@ -1,0 +1,55 @@
+<h2 class="contact__title">Entre em contato</h2>
+<section class="contact__container">
+    <form class="contact-form" [formGroup]="formContato" (ngSubmit)="enviarForm()">
+        <input type="text" placeholder="Digite o seu nome" formControlName="nome" [class.valid]="formContato.controls['nome'].valid" [class.invalid]="formContato.controls['nome'].invalid && formContato.controls['nome'].touched">
+        <div *ngIf="formContato.controls['nome'].invalid && formContato.controls['nome'].touched">
+        <small class="error-message" *ngIf="formContato.controls['nome'].hasError('minlength')">
+            Esse campo precisa de no minimo 4 caracteres.
+        </small>
+        <small class="error-message" *ngIf="formContato.controls['nome'].hasError('required')">
+            Esse campo precisa ser preenchido.
+        </small>
+        </div>
+        <input type="assunto" placeholder="Digite o assunto" formControlName="assunto" [class.valid]="formContato.controls['assunto'].valid" [class.invalid]="formContato.controls['assunto'].invalid && formContato.controls['assunto'].touched">
+        <div *ngIf="formContato.controls['assunto'].invalid && formContato.controls['assunto'].touched">
+            <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('minlength')">
+                Esse campo precisa de no minimo 10 caracteres.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['assunto'].hasError('required')">
+                Esse campo precisa ser preenchido.
+            </small>
+            </div>
+        <input type="tell" mask="(00) 00000-0000" placeholder="(00) 00000-0000" formControlName="telefone" [class.valid]="formContato.controls['telefone'].valid" [class.invalid]="formContato.controls['telefone'].invalid && formContato.controls['telefone'].touched">
+        <div *ngIf="formContato.controls['telefone'].invalid && formContato.controls['telefone'].touched">
+            <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('minlength')">
+                Esse campo precisa de no minimo 4 caracteres.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['telefone'].hasError('required')">
+                Esse campo precisa ser preenchido.
+            </small>
+            </div>
+        <input type="email" placeholder="Digite o seu e-mail" formControlName="email" [class.valid]="formContato.controls['email'].valid" [class.invalid]="formContato.controls['email'].invalid && formContato.controls['email'].touched">
+        <div *ngIf="formContato.controls['email'].invalid && formContato.controls['email'].touched">
+            <small class="error-message" *ngIf="formContato.controls['email'].hasError('email')">
+                E-mail inválido, Digite um e-mail válido.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['email'].hasError('required')">
+                Esse campo precisa ser preenchido.
+            </small>
+            </div>
+        <textarea maxlength="300" placeholder="Digite a sua mensagem" formControlName="mensagem" [class.valid]="formContato.controls['mensagem'].valid" [class.invalid]="formContato.controls['mensagem'].invalid && formContato.controls['mensagem'].touched"></textarea>
+        <div *ngIf="formContato.controls['mensagem'].invalid && formContato.controls['mensagem'].touched">
+            <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('minlength')">
+                Esse campo precisa de no minimo 20 caracteres.
+            </small>
+            <small class="error-message" *ngIf="formContato.controls['mensagem'].hasError('required')">
+                Esse campo precisa ser preenchido.
+            </small>
+            </div>
+        <button [disabled]="formContato.invalid" type="submit">Enviar</button>
+    </form>
+    <address>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83996.21157419389!2d2.2258652581113254!3d48.860467889539244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e2964e34e2d%3A0x8ddca9ee380ef7e0!2sTorre%20Eiffel!5e0!3m2!1spt-BR!2sbr!4v1677850313619!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>Champ de Mars, 5 Av. Anatole France, 75007 Paris, França</p>
+    </address>
+</section>
